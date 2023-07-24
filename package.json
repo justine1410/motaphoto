@@ -1,0 +1,22 @@
+{
+  "name": "motaphoto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/style.scss:./css/theme.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justine1410/motaphoto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justine1410/motaphoto/issues"
+  },
+  "homepage": "https://github.com/justine1410/motaphoto#readme",
+  "dependencies": {
+    "sass": "^1.64.1"
+  }
+}

@@ -1,0 +1,35 @@
+body {
+  background-color: white !important;
+}
+body a {
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 30px 0;
+}
+header img {
+  width: 30%;
+}
+header .menu {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+header .menu li {
+  margin: 0 20px;
+  font-family: "Space Mono";
+}
+
+#colophon ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  font-family: "Space Mono";
+  text-transform: uppercase;
+}
+
+/*# sourceMappingURL=theme.css.map */
