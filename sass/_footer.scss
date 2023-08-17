@@ -1,10 +1,35 @@
-#colophon{
-    ul{
-        display:flex;
-        justify-content: space-evenly;
-        list-style: none;
-        font-family: 'Space Mono';
-        text-transform: uppercase;
+    .footer-top-visible .footer-nav-widgets-wrapper, .footer-top-hidden #site-footer{
+        margin: 0;
+        border: none;
+        .footer-menu-wrapper{
+            width: 100%;
+            ul{
+                display: flex;
+                justify-content: center;
+                li a{
+                    color: #000000 !important;
+                    font-family: 'Space Mono';
+                    font-weight: 400;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+    #site-footer{
+        display: none;
+    }
+    .footer-top{
+        border: none;
+    }
+
+/* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
+
+@media screen and (min-width:320px) and (max-width:1200px){
+    #colophon{
+        ul{
+            flex-direction: column;
+            align-items: center;
+        }
     }
 }
 

@@ -9,8 +9,7 @@ function theme_enqueue_styles() {
 
 
 function add_js_scripts() {
-    wp_enqueue_script( 'script-js', get_stylesheet_directory_uri() . '/js/main.js', array(), false, true );
-    wp_enqueue_script( 'swiper-js', get_stylesheet_directory_uri() . '/js/swiper.js', array(), false, true );
+    wp_enqueue_script( 'script-js', get_stylesheet_directory_uri() . '/js/scripts.js', array(), false, true );
 
 }
 add_action('wp_enqueue_scripts', 'add_js_scripts');

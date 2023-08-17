@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background-color: white !important;
 }
@@ -5,31 +6,113 @@ body a {
   text-decoration: none;
 }
 
-header {
+#site-header {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 30px 0;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
 }
-header img {
-  width: 30%;
+#site-header img {
+  margin-left: 10%;
+  width: 25%;
 }
-header .menu {
+#site-header ul {
   display: flex;
-  list-style: none;
-  padding: 0;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
 }
-header .menu li {
-  margin: 0 20px;
+#site-header ul li a {
+  color: #000000 !important;
   font-family: "Space Mono";
+  margin-right: 30px;
 }
 
-#colophon ul {
+/* The Modal (background) */
+#myModal {
+  display: none; /* Hidden by default */
+  justify-content: center;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  padding-top: 100px;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+#myModal .container {
+  background-color: #ffffff;
+  border: solid;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  height: 769px;
+}
+#myModal .container img {
+  width: 100%;
+  object-fit: cover;
+  margin: 0;
+}
+#myModal .container form {
+  width: 263px;
+  margin: auto;
+}
+#myModal .container form label {
+  font-family: "poppins";
+  font-size: 16px;
+  font-weight: 500;
+}
+#myModal .container form input {
+  border: solid 1px #b8bbc2;
+  border-radius: 10px;
+}
+#myModal .container form p {
+  margin: 20px 0;
+}
+#myModal .container form > p:nth-child(6) > input {
+  width: 100%;
+  background-color: #d8d8d8;
+  color: #000000;
+  font-family: "space monospace";
+  font-size: 16px;
+  border: none;
+}
+
+.footer-top-visible .footer-nav-widgets-wrapper, .footer-top-hidden #site-footer {
+  margin: 0;
+  border: none;
+}
+.footer-top-visible .footer-nav-widgets-wrapper .footer-menu-wrapper, .footer-top-hidden #site-footer .footer-menu-wrapper {
+  width: 100%;
+}
+.footer-top-visible .footer-nav-widgets-wrapper .footer-menu-wrapper ul, .footer-top-hidden #site-footer .footer-menu-wrapper ul {
   display: flex;
-  justify-content: space-evenly;
-  list-style: none;
+  justify-content: center;
+}
+.footer-top-visible .footer-nav-widgets-wrapper .footer-menu-wrapper ul li a, .footer-top-hidden #site-footer .footer-menu-wrapper ul li a {
+  color: #000000 !important;
   font-family: "Space Mono";
-  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+#site-footer {
+  display: none;
+}
+
+.footer-top {
+  border: none;
+}
+
+/* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
+@media screen and (min-width: 320px) and (max-width: 1200px) {
+  #colophon ul {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /*# sourceMappingURL=theme.css.map */
