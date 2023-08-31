@@ -1,26 +1,22 @@
-    .footer-top-visible .footer-nav-widgets-wrapper, .footer-top-hidden #site-footer{
-        margin: 0;
-        border: none;
-        .footer-menu-wrapper{
-            width: 100%;
-            ul{
-                display: flex;
-                justify-content: center;
-                li a{
-                    color: #000000 !important;
-                    font-family: 'Space Mono';
-                    font-weight: 400;
-                    font-size: 16px;
-                }
+#colophon{
+    border-top: solid 2px #000000;
+    nav{
+        display: flex;
+        justify-content: center;
+        ul{
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            width: 620px;
+            li a{
+                color: #000000;
+                font-family:'space mono' ;
             }
         }
+    
     }
-    #site-footer{
-        display: none;
-    }
-    .footer-top{
-        border: none;
-    }
+}
 
 /* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
 

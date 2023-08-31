@@ -9,9 +9,12 @@ function theme_enqueue_styles() {
 
 
 function add_js_scripts() {
-    wp_enqueue_script( 'script-js', get_stylesheet_directory_uri() . '/js/scripts.js', array(), false, true );
+    wp_enqueue_script( 'modal-js', get_stylesheet_directory_uri() . '/js/modal.js', array(), false, true );
+    wp_enqueue_script( 'single_post-js', get_stylesheet_directory_uri() . '/js/single_post.js', array(), false, true );
+
 
 }
+
 add_action('wp_enqueue_scripts', 'add_js_scripts');
 
 
