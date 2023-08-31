@@ -22,6 +22,19 @@ body .banniere h1 .titre {
   width: 70%;
   height: auto;
 }
+body .photos_post {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  width: 1148px;
+  margin: auto;
+}
+body .photos_post img {
+  width: 564px;
+  height: 495px;
+  margin: 20px;
+  object-fit: cover;
+}
 
 #site-header {
   display: flex;

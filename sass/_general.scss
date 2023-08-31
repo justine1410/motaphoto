@@ -23,4 +23,19 @@ body{
         }
     }
    }
+
+   .photos_post{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    width: 1148px;
+    margin: auto;
+    img{
+        width: 564px;
+        height: 495px;
+        margin: 20px;
+        object-fit: cover;
+
+    }
+   }
 }
