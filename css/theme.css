@@ -2,9 +2,25 @@
 body a {
   text-decoration: none;
 }
-body .banniere-img {
-  width: 100% !important;
-  padding: 0 !important;
+body .banniere {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+body .banniere img {
+  width: 100%;
+  height: 900px;
+  object-fit: cover;
+}
+body .banniere h1 {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  z-index: 1;
+}
+body .banniere h1 .titre {
+  width: 70%;
+  height: auto;
 }
 
 #site-header {
@@ -13,7 +29,7 @@ body .banniere-img {
   align-items: center;
   height: 80px;
   box-shadow: 10px 10px 30px #f1f1f1;
-  margin-bottom: 50px;
+  z-index: 0;
 }
 #site-header img {
   width: 216px;
