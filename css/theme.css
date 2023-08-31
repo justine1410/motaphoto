@@ -29,6 +29,7 @@ body .banniere-img {
   color: #000000 !important;
   font-family: "Space Mono";
   margin-right: 30px;
+  text-transform: uppercase;
 }
 
 /* The Modal (background) */
@@ -108,7 +109,6 @@ body .banniere-img {
   font-style: italic;
   font-size: 66px;
   line-height: 58px;
-  width: 50%;
   margin: 0;
 }
 .post .post__meta h3 {
@@ -257,6 +257,49 @@ body .banniere-img {
   text-decoration: none;
 }
 
+/* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
+@media screen and (min-width: 320px) and (max-width: 1200px) {
+  .post {
+    flex-direction: column-reverse;
+  }
+  .post img {
+    width: 265px;
+    height: 397px;
+    margin: auto;
+  }
+  .post .post__meta {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+  }
+  .post .post__meta h2 {
+    font-size: 46px;
+    width: 100%;
+  }
+  .post-interesting .post-contact {
+    flex-direction: column;
+    width: 100%;
+  }
+  .post-interesting .prochain {
+    display: none;
+  }
+  .post-loving {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .post-loving .other_post img {
+    width: 317px;
+    height: 280px;
+    object-fit: cover;
+    margin: auto;
+    padding-bottom: 20px;
+  }
+  .post-loving .other_post_contact {
+    display: none;
+  }
+}
 #colophon {
   border-top: solid 2px #000000;
 }
