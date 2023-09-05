@@ -121,16 +121,27 @@
         width:50%;
         display:flex;
         justify-content:end;
-        .nav-links{
-            display: flex;
-            flex-direction: column-reverse;
-            img{
-                margin-top: 20px;
+        nav{
+            position: relative;
+            .nav-links{
+                display: flex;
+                flex-direction: column-reverse;
+                img{
+                    margin-top: 20px;
+                }
+                .nav-previous .prev{
+                    position: absolute;
+                    right: 12%;
+                }
+    
+                .nav-previous .test{
+                    position: absolute;
+                    right: 12%;
+                    bottom: 0;
+                }
             }
-            .nav-previous{
-                position: absolute;
-                right: 3%;
-            }
+    
+
         }
     }
     

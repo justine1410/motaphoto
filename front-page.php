@@ -17,14 +17,36 @@
 	?>
 </div>
 
-<div class="photos_post">
-	<?php  
-		 $args = array(
-			'post_type' => 'photos',  
+<div class='post-filters'>
+	<?php  get_template_part( 'template-parts/filtre' );?>
+
+</div>
+
+
+<div class="photos_post" id="portfolio">	
+	<?php
+
+		$category_filter = (isset($_GET['category'])) ? $_GET['category'] : '';
+		$category_filter_format = (isset($_GET['category'])) ? $_GET['category'] : '';
+
+		$args = array(
+			'post_type' => 'photos', // Utilisez le slug de votre CPT
 			'posts_per_page' => 8,   
-			
+
 		);
 
+		// Si une catégorie est sélectionnée, ajoutez-la à la requête
+		if (!empty($category_filter)) {
+			$args['tax_query'] = array(
+				array(
+					'taxonomy' => 'categorie',
+					'field' => 'slug',
+					'terms' => $category_filter,
+				),
+			);
+		}
+		
+		// Affichage du portofolio sur la page.
 		$query = new WP_Query($args);
 
 		if ($query->have_posts()) :
@@ -40,5 +62,12 @@
 
 </div>
 
+
+<div class="bouton">
+	<button id="afficher-plus">Charger plus</button>
+
+</div>
+
 <?php get_footer(); ?>
+
 

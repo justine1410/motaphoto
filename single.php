@@ -46,7 +46,10 @@
         <div class="post-contact">
             <p>Cette photo vous intéresse ?</p>
             <button class="post-contact-button">Contact</button>
-           <?php  get_template_part( 'template-parts/modal_single_post' );?>
+           <?php  
+             get_template_part( 'template-parts/modal_single_post' );
+             
+            ?>
 
         </div>
         <div class="prochain">
@@ -59,13 +62,31 @@
             $previous_post = get_previous_post();
             $next_post = get_next_post();
 
+            if($next_post){
 
-            the_post_navigation( array(
 
-                'next_text' => get_the_post_thumbnail($next_post->ID,'thumbnail'). "<img src='http://motaphoto.local/wp-content/uploads/2023/08/arrow_prev.png'>",
-                'prev_text' =>  "<img src='http://motaphoto.local/wp-content/uploads/2023/08/arrox-next.png'>",
+                the_post_navigation( array(
 
-            ) );
+                    'next_text' => get_the_post_thumbnail($next_post->ID,'thumbnail'). "<img src='http://motaphoto.local/wp-content/uploads/2023/08/arrow_prev.png'>",
+                    'prev_text' =>  "<img class='test' src='http://motaphoto.local/wp-content/uploads/2023/08/arrox-next.png'>",
+    
+                ) );
+
+
+
+    
+            }else{
+                
+                    
+ 
+                    the_post_navigation( array(
+                        'prev_text' => get_the_post_thumbnail($previous_post->ID,'thumbnail'). "<img class='prev' src='http://motaphoto.local/wp-content/uploads/2023/08/arrox-next.png'>",
+        
+                    ) );
+                    
+                   
+
+            }
            
         ?>
             

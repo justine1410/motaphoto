@@ -35,6 +35,22 @@ body .photos_post img {
   margin: 20px;
   object-fit: cover;
 }
+body .bouton {
+  text-align: center;
+  margin: 50px 0;
+}
+body .bouton button {
+  width: 272px;
+  height: 50px;
+  background-color: #d8d8d8;
+  font-family: "space mono";
+  font-size: 12px;
+  font-weight: 400;
+  color: #000000;
+}
+body .bouton button:hover {
+  text-decoration: none;
+}
 
 #site-header {
   display: flex;
@@ -233,16 +249,24 @@ body .photos_post img {
   display: flex;
   justify-content: end;
 }
-.post-interesting .prochain .nav-links {
+.post-interesting .prochain nav {
+  position: relative;
+}
+.post-interesting .prochain nav .nav-links {
   display: flex;
   flex-direction: column-reverse;
 }
-.post-interesting .prochain .nav-links img {
+.post-interesting .prochain nav .nav-links img {
   margin-top: 20px;
 }
-.post-interesting .prochain .nav-links .nav-previous {
+.post-interesting .prochain nav .nav-links .nav-previous .prev {
   position: absolute;
-  right: 3%;
+  right: 12%;
+}
+.post-interesting .prochain nav .nav-links .nav-previous .test {
+  position: absolute;
+  right: 12%;
+  bottom: 0;
 }
 
 .post-loving {

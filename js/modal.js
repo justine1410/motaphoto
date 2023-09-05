@@ -22,6 +22,9 @@ let postContactButton = document.querySelector(".post-contact-button")
 
 postContactButton.addEventListener('click',()=>{
     modalSinglePost.style.display='flex';
+    let ref = document.querySelector('#reference > span > input');
+    let ref_post = document.querySelector('.ref-post')
+    ref.value=ref_post.textContent;
     
 })
 
@@ -31,8 +34,5 @@ document.addEventListener('mouseup',(e)=>{
         modalSinglePost.style.display='none';
     }
 })
-
-
-
 
 // test
