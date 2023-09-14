@@ -6,6 +6,7 @@ body .banniere {
   display: inline-block;
   position: relative;
   width: 100%;
+  margin-bottom: 50px;
 }
 body .banniere img {
   width: 100%;
@@ -22,14 +23,36 @@ body .banniere h1 .titre {
   width: 70%;
   height: auto;
 }
-body .photos_post {
+body .post-filters {
+  width: 1148px;
+  margin: auto;
+  padding: 20px;
+}
+body .post-filters form {
+  display: flex;
+  justify-content: space-between;
+}
+body .post-filters form select {
+  font-family: "poppins";
+  font-size: 12px;
+  width: 182px;
+  height: 40px;
+  border: solid 1px #b8bbc2;
+  border-radius: 8px;
+}
+body .post-filters form select option {
+  font-family: "poppins";
+  font-size: 12px;
+  line-height: 18px;
+}
+body .photos_post, body #posts-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
   width: 1148px;
   margin: auto;
 }
-body .photos_post img {
+body .photos_post img, body #posts-container img {
   width: 564px;
   height: 495px;
   margin: 20px;
@@ -52,29 +75,94 @@ body .bouton button:hover {
   text-decoration: none;
 }
 
+/* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
+@media screen and (min-width: 320px) and (max-width: 1100px) {
+  body .banniere h1 {
+    z-index: 0;
+    left: auto;
+    top: 30%;
+  }
+  body .banniere h1 .titre {
+    width: 100%;
+  }
+  body .banniere img {
+    height: 253px;
+  }
+  body .photos_post, body #posts-container {
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    padding: 20px;
+  }
+  body .photos_post img, body #posts-container img {
+    width: 320px;
+  }
+}
 #site-header {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 80px;
-  box-shadow: 10px 10px 30px #f1f1f1;
-  z-index: 0;
+  /* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
 }
 #site-header img {
   width: 216px;
   height: 14px;
 }
-#site-header ul {
+#site-header .destkop ul {
   display: flex;
   align-items: center;
   list-style-type: none;
   margin: 0;
 }
-#site-header ul li a {
+#site-header .destkop ul li a {
   color: #000000 !important;
   font-family: "Space Mono";
   margin-right: 30px;
   text-transform: uppercase;
+}
+#site-header .mobile {
+  display: none;
+}
+#site-header .menu-burger {
+  display: none;
+}
+@media screen and (min-width: 320px) and (max-width: 1200px) {
+  #site-header .destkop {
+    display: none;
+  }
+  #site-header .menu-burger {
+    display: block;
+    cursor: pointer;
+  }
+  #site-header .menu-burger img {
+    width: initial;
+  }
+  #site-header .menu-burger .logo-close {
+    display: none;
+  }
+  #site-header .mobile {
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+    background-color: #e00000;
+    width: 100%;
+  }
+  #site-header .mobile ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+    height: 600px;
+  }
+  #site-header .mobile ul li a {
+    color: #ffffff !important;
+    font-family: "Space Mono";
+    font-size: 44px;
+    text-transform: uppercase;
+  }
 }
 
 /* The Modal (background) */

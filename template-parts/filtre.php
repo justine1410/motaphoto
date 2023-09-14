@@ -1,59 +1,79 @@
 <?php
+		// Récupérer toutes les catégorie
 		$taxonomy = 'categorie';
-		// Récupérer toutes les catégories
-		$categories = get_terms($taxonomy, array(
-			'hide_empty' => false, // Inclure les catégories sans articles
-		));
-
-		// Vérifier la catégorie sélectionnée (via la requête GET)
+		$categories = get_terms($taxonomy, array('hide_empty' => false, ));
 		$category_filter = (isset($_GET['category'])) ? $_GET['category'] : '';
-        
-        echo'
-            <div class="category-filter">
-            <form id="category-filter-form" action="' . esc_url(home_url()) . '" method="get">
-                <select id="category-select" name="category">
-                <option value="">Catégories</option>
-                
-        ';
-        foreach ($categories as $category) :
-			$selected = ($category->slug === $category_filter) ? 'selected' : '';
-			echo '<option value="' . esc_attr($category->slug) . '" ' . $selected . '>' . esc_html($category->name) . '</option>';
-		endforeach;
-        echo '
-            </select>
-            </form>
-            </div>
-        ';
 
-
-		$taxonomyFormat = 'format'; // Remplacez par le nom de la taxonomie que vous souhaitez afficher
-		$terms =  get_terms($taxonomyFormat, array(
-			'hide_empty' => false, // Inclure les catégories sans articles
-		));
-
-		// Vérifier la catégorie sélectionnée (via la requête GET)
+		// Récupérer toutes les fomrats
+		$taxoFormat = 'format';
+		$formats = get_terms($taxoFormat,array('hide_empty' => false,));// Inclure les catégories sans articles
 		$category_filter_format = (isset($_GET['category'])) ? $_GET['category'] : '';
 
-		echo'
-		<div class="category-filter_format">
-		<form id="category-filter-format-form" action="' . esc_url(home_url()) . '" method="get">
-			<select id="category-select-format" name="category">
-			<option value="">Formats</option>
-			
-		';
-		foreach ($terms as $category) :
-				$selected = ($category->slug === $category_filter_format) ? 'selected' : '';
-				echo '<option value="' . esc_attr($category->slug) . '" ' . $selected . '>' . esc_html($category->name) . '</option>';
-			endforeach;
-			echo '
-				</select>
-				</form>
-				</div>
-			';
 
 	
-
-
-		
 ?>	
 
+
+
+<div class="category-filter">
+	<form id="category-filter-form" action="' . esc_url(home_url()) . '" method="get">
+		<div class="cat-form">
+			<select  id="category-select" name="category">
+					<option class="label" value="">CATÉGORIES</option>
+					<?php 
+						foreach ($categories as $category) :
+						$selected = ($category->slug === $category_filter) ? 'selected' : '';
+						echo '<option class="label" value="' . esc_attr($category->slug) . '" ' . $selected . '>' . esc_html($category->name) . '</option>';
+						endforeach;
+					?>
+			</select>
+			<select id="category-select-format" name="category">
+				<option class="label" value="">FORMATS</option>
+				<?php	
+					foreach ($formats as $category) :
+						$selected = ($category->slug === $category_filter_format) ? 'selected' : '';
+						echo '<option class="label" value="' . esc_attr($category->slug) . '" ' . $selected . '>' . esc_html($category->name) . '</option>';
+					endforeach;
+				?>
+			</select>
+		</div>
+		<div class="trie">
+			<select  id="category-select-date" name="category">
+				<option class="label" value="">TRIER PAR</option>
+				<option class="label" value="date-asc">Plus ancien en premier</option>
+				<option value="date-desc">Plus récent en premier</option>
+			</select>
+		</div>
+	</form>
+</div>
+
+
+<!-- 
+<div class="category-filter">
+	<div class="category-et-format">
+
+		<ul class="categorie">
+			<li class="cat-titre">Catégories <img class="logo" src="<?= get_stylesheet_directory_uri().'/img/chevron-bas.png' ?>"></li>
+			<ul class="choix-cat">
+				<? 
+				// foreach ($categories as $category) :
+				// $selected = ($category->slug === $category_filter) ? 'selected' : '';
+				// 	echo '<li class="category-select">'. esc_attr($category->slug) . $selected. '</li>';
+				// endforeach;
+				?>
+				
+			</ul>
+		</ul>
+		<ul class="format">
+		<li class="format-titre">Formats <img class="logo" src="<?= get_stylesheet_directory_uri().'/img/chevron-bas.png' ?>"></li>
+			<ul class="choix-form">
+			<? 
+				// foreach ($formats as $category) :
+				// $selected = ($category->slug === $category_filter_format) ? 'selected' : '';
+				// 	echo '<li>'. esc_attr($category->slug) . $selected. '</li>';
+				// endforeach;
+				?>
+			</ul>
+		</ul>
+	</div>
+</div> -->

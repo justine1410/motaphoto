@@ -1,11 +1,39 @@
 jQuery(document).ready(function($) {
-    $("#category-select").change(function() {
-        $("#category-filter-form").submit(); // Soumettre automatiquement le formulaire lors du changement
+    $("#category-select, #category-select-format, #category-select-date ").change(function() {
+        let category = $('#category-select').val();
+        let format = $('#category-select-format').val();
+        let order = $('#category-select-date').val();
+
+        alert(order);
+
+        $.ajax({
+            url: my_ajax_object.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'filter_posts',
+                category: category,
+                format: format,
+                order: order,
+            },
+            success: function (response) {
+                // Mettez à jour la zone d'affichage des publications filtrées.
+                $('#portfolio').html(response);
+            }
+        });
     });
 
-    $("#category-select-format").change(function() {
-        $("#category-filter-format-form").submit(); // Soumettre automatiquement le formulaire lors du changement
-    });
+    $(".cat-titre").click(function(){
+        $('.choix-cat').css("display","flex");
+    })
 
 
 });
+
+
+
+
+
+
+
+
+

@@ -40,14 +40,31 @@
 
 		<header id="site-header" class="header-footer-group">
 				<img class="logo" src="<?= get_stylesheet_directory_uri().'/img/Logo.png' ?>">
-				<ul>
-					<?php wp_nav_menu(array(
-						'menu'=>'menu principal'
-					)); 
-					  	get_template_part( 'template-parts/modale' );
+				<div class="destkop">
+					<ul>
+						<?php wp_nav_menu(array(
+							'menu'=>'menu principal'
+						)); 
+							get_template_part( 'template-parts/modale' );
 
-					?>
-				</ul>
+						?>
+					</ul>
+				</div>
+				<div class="menu-burger">
+					<img class="logo-open" src="<?= get_stylesheet_directory_uri().'/img/open.png' ?>">
+					<img class="logo-close" src="<?= get_stylesheet_directory_uri().'/img/close.png' ?>">
+				</div>
+				<div class="mobile">
+					<ul>
+						<?php wp_nav_menu(array(
+							'menu'=>'menu principal'
+						)); 
+							get_template_part( 'template-parts/modale' );
+
+						?>
+					</ul>
+				</div>
+
 
 
 		</header><!-- #site-header -->

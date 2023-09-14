@@ -18,33 +18,22 @@
 </div>
 
 <div class='post-filters'>
-	<?php  get_template_part( 'template-parts/filtre' );?>
-
+<?php get_template_part( 'template-parts/filtre' ); ?>
 </div>
 
 
 <div class="photos_post" id="portfolio">	
 	<?php
-
-		$category_filter = (isset($_GET['category'])) ? $_GET['category'] : '';
-		$category_filter_format = (isset($_GET['category'])) ? $_GET['category'] : '';
-
 		$args = array(
 			'post_type' => 'photos', // Utilisez le slug de votre CPT
-			'posts_per_page' => 8,   
-
+			'posts_per_page' => 8,  
+			array(
+				'taxonomy' => 'categorie',
+				'field' => 'slug',
+			), 
 		);
 
-		// Si une catégorie est sélectionnée, ajoutez-la à la requête
-		if (!empty($category_filter)) {
-			$args['tax_query'] = array(
-				array(
-					'taxonomy' => 'categorie',
-					'field' => 'slug',
-					'terms' => $category_filter,
-				),
-			);
-		}
+		;
 		
 		// Affichage du portofolio sur la page.
 		$query = new WP_Query($args);
@@ -52,8 +41,10 @@
 		if ($query->have_posts()) :
 			while ($query->have_posts()) : $query->the_post();
 				// Afficher le contenu du post ici (titre, contenu, etc.)
-				the_post_thumbnail();
-			endwhile;
+				?>
+				
+				<a href='<?= the_permalink()?>'> <?=the_post_thumbnail()?></a>
+			<? endwhile;
 			wp_reset_postdata(); // Réinitialiser la requête post
 		else :
 			echo "Aucun post trouvé avec cette taxonomie.";
@@ -62,11 +53,16 @@
 
 </div>
 
+<div id="posts-container">
+    <!-- Vos articles existants ici -->
+</div>
 
 <div class="bouton">
-	<button id="afficher-plus">Charger plus</button>
-
+	<button id="load-more-button">charger plus</button>
 </div>
+
+
+
 
 <?php get_footer(); ?>
 
