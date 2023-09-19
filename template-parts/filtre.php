@@ -48,32 +48,3 @@
 </div>
 
 
-<!-- 
-<div class="category-filter">
-	<div class="category-et-format">
-
-		<ul class="categorie">
-			<li class="cat-titre">Catégories <img class="logo" src="<?= get_stylesheet_directory_uri().'/img/chevron-bas.png' ?>"></li>
-			<ul class="choix-cat">
-				<? 
-				// foreach ($categories as $category) :
-				// $selected = ($category->slug === $category_filter) ? 'selected' : '';
-				// 	echo '<li class="category-select">'. esc_attr($category->slug) . $selected. '</li>';
-				// endforeach;
-				?>
-				
-			</ul>
-		</ul>
-		<ul class="format">
-		<li class="format-titre">Formats <img class="logo" src="<?= get_stylesheet_directory_uri().'/img/chevron-bas.png' ?>"></li>
-			<ul class="choix-form">
-			<? 
-				// foreach ($formats as $category) :
-				// $selected = ($category->slug === $category_filter_format) ? 'selected' : '';
-				// 	echo '<li>'. esc_attr($category->slug) . $selected. '</li>';
-				// endforeach;
-				?>
-			</ul>
-		</ul>
-	</div>
-</div> -->

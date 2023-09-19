@@ -84,15 +84,12 @@
     </div>
 
     <div class="post-loving">
-        <h3>VOUS AIMEREZ AUSSI </h3>
+        <h3>VOUS AIMEREZ AUSSI </h3> 
 
         <div class="other_post">
-        <?php  
-            
-            get_template_part( 'template-parts/photo_block' );
-
-        
-        ;?>
+        <?php         
+            get_template_part( 'template-parts/photo_block' );     
+        ?>
 
            
         </div>

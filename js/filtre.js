@@ -1,10 +1,9 @@
 jQuery(document).ready(function($) {
-    $("#category-select, #category-select-format, #category-select-date ").change(function() {
+    $("#category-select , #category-select-format, #category-select-date ").change(function() {
         let category = $('#category-select').val();
         let format = $('#category-select-format').val();
         let order = $('#category-select-date').val();
 
-        alert(order);
 
         $.ajax({
             url: my_ajax_object.ajax_url,

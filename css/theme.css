@@ -52,10 +52,9 @@ body .photos_post, body #posts-container {
   width: 1148px;
   margin: auto;
 }
-body .photos_post img, body #posts-container img {
-  width: 564px;
+body .photos_post .post-image img, body #posts-container .post-image img {
+  width: 100%;
   height: 495px;
-  margin: 20px;
   object-fit: cover;
 }
 body .bouton {
@@ -430,17 +429,90 @@ body .bouton button:hover {
     flex-direction: column;
     align-items: center;
   }
-  .post-loving .other_post img {
+  .post-loving .other_post .lightbox {
+    margin: 20px;
+  }
+  .post-loving .other_post .lightbox post-image img {
     width: 317px;
     height: 280px;
     object-fit: cover;
     margin: auto;
-    padding-bottom: 20px;
   }
   .post-loving .other_post_contact {
     display: none;
   }
 }
+.lightbox {
+  position: relative;
+  display: flex;
+  background-color: #000000;
+}
+.lightbox .post-image {
+  width: 100%;
+  height: 100%;
+}
+.lightbox .lightbox-info {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  opacity: 0;
+}
+.lightbox .lightbox-info .fullscreen {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  color: #ffffff;
+}
+.lightbox .lightbox-info .icone_eye, .lightbox .lightbox-info .icone_fullscreen {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.lightbox .lightbox-info .info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: #ffffff;
+  font-family: "space mono";
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.lightbox .lightbox-info .info a {
+  color: #ffffff;
+  font-family: "space mono";
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.lightbox .lightbox-info:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.5); /* Remplacez 0.5 par l'opacité souhaitée (0 = transparent, 1 = opaque) */
+}
+
+#modaLightbox {
+  display: none;
+  position: fixed;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Le dernier paramètre (0.7) détermine l'opacité du noir transparent. 1 = complètement opaque, 0 = complètement transparent */
+  z-index: 9999; /* Utilisez un z-index élevé pour vous assurer que l'overlay est au-dessus de tout le contenu */
+}
+#modaLightbox .container-lightbox {
+  background-color: #ffffff;
+  border: solid;
+  flex-direction: column;
+  align-items: center;
+  width: 564px;
+  height: 495px;
+}
+
 #colophon {
   border-top: solid 2px #000000;
 }

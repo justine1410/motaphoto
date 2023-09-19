@@ -55,8 +55,9 @@ function load_more_posts() {
 
     if ($query->have_posts()) :
         while ($query->have_posts()) : $query->the_post();
-            // Affichez ici le contenu de chaque article
-            the_post_thumbnail();
+        
+        get_template_part( 'template-parts/lightbox' ); 
+
         endwhile;
     endif;
 
@@ -70,21 +71,80 @@ add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
 // filtre
 function filter_posts() {
     
-    $categorie = 'categorie' ;  
-    $taxonomie =  $_POST['category']; 
-    $format = 'format';
-    $taxoFormat = $_POST['format'];
+    $categorie =  $_POST['category']; 
+    $format = $_POST['format'];
     $sort_order =$_POST['order'];
+    
 
-
-    if($taxonomie){
+   
+    if($categorie && $format){
+        $args = array(
+            'post_type'=>'photos',
+            'orderby' => 'date',
+            'order' => $sort_order,
+            'tax_query'=> array(
+                'relation'=> 'AND',
+                array(
+                    'taxonomy' => 'categorie',
+                    'field' => 'slug',
+                    'terms' => $categorie,
+                ),
+                array(
+                    'taxonomy' => 'format',
+                    'field' => 'slug',
+                    'terms' => $format,
+                ),
+            ),
+    
+        );
+         $query = new WP_Query($args);
+    
+            if ($query->have_posts()) :
+                while ($query->have_posts()) : $query->the_post();
+    
+                get_template_part( 'template-parts/lightbox' ); 
+    
+           endwhile;
+            wp_reset_postdata(); // Réinitialiser la requête post
+            else :
+                echo "Il n'y a pas de photos correspondant à votre recherche";
+            endif;
+    
+    }
+    elseif($categorie){
+        $args = array(
+                    'post_type' => 'photos',  
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'categorie',
+                            'field'    => 'slug',
+                            'terms'    =>  $categorie ,
+                        ),
+                    ),
+                );
+                $query = new WP_Query($args);
+        
+                if ($query->have_posts()) :
+                    while ($query->have_posts()) : $query->the_post();
+        
+                    get_template_part( 'template-parts/lightbox' ); 
+        
+               endwhile;
+                wp_reset_postdata(); // Réinitialiser la requête post
+                else :
+                    echo "Il n'y a pas de photos correspondant à votre recherche";
+            
+                endif;
+            
+    }
+    elseif($format){
         $args = array(
             'post_type' => 'photos',  
             'tax_query' => array(
                 array(
-                    'taxonomy' => $categorie,
+                    'taxonomy' => 'format',
                     'field'    => 'slug',
-                    'terms'    =>  $taxonomie ,
+                    'terms'    =>  $format ,
                 ),
             ),
         );
@@ -92,81 +152,19 @@ function filter_posts() {
 
         if ($query->have_posts()) :
             while ($query->have_posts()) : $query->the_post();
-            ?>
-            <a href='<?= the_permalink()?>'> <?=the_post_thumbnail()?></a>
-       <? endwhile;
+
+            get_template_part( 'template-parts/lightbox' ); 
+
+       endwhile;
         wp_reset_postdata(); // Réinitialiser la requête post
         else :
-            echo "oups";
+            echo "Il n'y a pas de photos correspondant à votre recherche";
     
         endif;
     
-    }
-    elseif($taxoFormat){
-        $args = array(
-            'post_type' => 'photos',  
-            'tax_query' => array(
-                array(
-                    'taxonomy' => $format,
-                    'field'    => 'slug',
-                    'terms'    =>  $taxoFormat ,
-                ),
-            ),
-        );
-        $query = new WP_Query($args);
-
-        if ($query->have_posts()) :
-            while ($query->have_posts()) : $query->the_post();
-            ?>
-				<a href='<?= the_permalink()?>'> <?=the_post_thumbnail()?></a>
-           <? endwhile;
-            wp_reset_postdata(); // Réinitialiser la requête post
-        else :
-            echo "coucou";
-    
-        endif;
 
     }
-    elseif($sort_order == 'date-asc'){
-        $args = array(
-            'post_type' => 'photos',
-            'orderby' => 'date',
-            'order' => 'ASC',
-        );
-        $query = new WP_Query($args);
-
-        if ($query->have_posts()) :
-            while ($query->have_posts()) : $query->the_post();
-        ?>
-            <a href='<?= the_permalink()?>'> <?=the_post_thumbnail()?></a>
-       <? 
-       endwhile;           
-        wp_reset_postdata(); // Réinitialiser la requête post
-        else :
-            echo "coucou";
     
-        endif;
-    }elseif($sort_order == 'date-desc'){
-        $args = array(
-            'post_type' => 'photos',
-            'orderby' => 'date',
-            'order' => 'DEC',
-        );
-        $query = new WP_Query($args);
-
-        if ($query->have_posts()) :
-            while ($query->have_posts()) : $query->the_post();
-        ?>
-                // Afficher le contenu du post ici (titre, contenu, etc.)
-                the_post_thumbnail();
-        <?  endwhile;
-            wp_reset_postdata(); // Réinitialiser la requête post
-        else :
-            echo "coucou";
-    
-        endif;
-
-    }
 
 }
 

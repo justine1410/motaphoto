@@ -1,0 +1,53 @@
+.lightbox{
+    position: relative;
+    display: flex;
+    background-color: #000000;
+
+    .post-image{
+        width: 100%;
+        height: 100%; 
+    }
+    
+    .lightbox-info{
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        opacity: 0;
+        .fullscreen{
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            color:#ffffff;
+        }
+        .icone_eye, .icone_fullscreen{
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        .info{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            color: #ffffff;
+            font-family:'space mono' ;
+            font-size: 14px;
+            text-transform: uppercase;
+            a{
+                color: #ffffff;
+                font-family:'space mono' ;
+                font-size: 14px;
+                text-transform: uppercase;
+
+            }
+        }
+    }
+    .lightbox-info:hover{
+       opacity: 1;
+        background-color: rgba(0, 0, 0, 0.5); /* Remplacez 0.5 par l'opacité souhaitée (0 = transparent, 1 = opaque) */    
+    }
+}

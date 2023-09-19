@@ -226,12 +226,15 @@
     flex-direction: column;
     align-items: center;
     .other_post{
-        img{
-            width: 317px;
-            height: 280px;
-            object-fit: cover;
-            margin: auto;
-            padding-bottom: 20px;
+        .lightbox{
+            margin: 20px;
+            post-image img{
+                width: 317px;
+                height: 280px;
+                object-fit: cover;
+                margin: auto;
+            }
+    
         }
     }
     .other_post_contact{
