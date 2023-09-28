@@ -1,17 +1,17 @@
 <div class="lightbox">
     <div class="post-image">
-        <?=the_post_thumbnail()?>
+        <?=the_post_thumbnail() ?>
     </div>
     <div class="lightbox-info">
         <div class="fullscreen">
-            <img class="icone_fullscreen" src="<?= get_stylesheet_directory_uri().'/img/Icon_fullscreen.png' ?>">
+            <img class="icone_fullscreen" data-id="<?php echo get_the_ID(); ?>"  src="<?= get_stylesheet_directory_uri().'/img/Icon_fullscreen.png' ?>">
         </div >
         <a href='<?= the_permalink()?>'> 
             <img class="icone_eye" src="<?= get_stylesheet_directory_uri().'/img/Icon_eye.png' ?>">
         </a>
         <div class="info">
             <?php 
-                the_field('référence') ;
+                the_field('reference') ;
             
                 $taxonomy = 'categorie'; // Remplacez par le nom de la taxonomie que vous souhaitez afficher
                 $terms = get_the_terms(get_the_ID(), $taxonomy);
@@ -26,3 +26,4 @@
         </div>
     </div>
 </div>
+

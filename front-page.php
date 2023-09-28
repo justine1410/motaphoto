@@ -1,8 +1,9 @@
 <?php get_header(); ?>
 
 <div class="banniere">
+	
 <?php
-		query_posts(array('post_type' => 'photos', 'orderby' => 'rand', 'showposts' => 1));
+		query_posts(array('post_type' => 'photo', 'orderby' => 'rand', 'showposts' => 1));
 		if (have_posts()) :
 		while (have_posts()) : the_post(); 
 

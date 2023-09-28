@@ -1,5 +1,5 @@
 jQuery(function($) {
-    var page = 1; // Numéro de page initial
+    let page = 1; // Numéro de page initial
 
     $('#load-more-button').on('click', function() {
         if (page ) {
@@ -19,3 +19,7 @@ jQuery(function($) {
         return false;
     });
 });
+
+
+
+

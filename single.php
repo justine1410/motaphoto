@@ -6,7 +6,7 @@
       <div class="post__meta">
         <h2><?php the_title(); ?></h2>
         <h3 class="ref">
-          Référence : <?php the_field('référence') ;?> <br>
+          Référence : <?php the_field('reference') ;?> <br>
         </h3>
         <h3>
             <?php 
@@ -64,7 +64,6 @@
 
             if($next_post){
                 the_post_navigation( array(
-
                     'next_text' => get_the_post_thumbnail($next_post->ID,'thumbnail'). "<img src='http://motaphoto.local/wp-content/uploads/2023/08/arrow_prev.png'>",
                     'prev_text' =>  "<img class='test' src='http://motaphoto.local/wp-content/uploads/2023/08/arrox-next.png'>",
     

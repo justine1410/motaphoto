@@ -7,7 +7,7 @@
 					echo do_shortcode('[contact-form-7 id="20" title="Contact"]');
 					
 				?>
-				<p class="ref-post"><?php the_field('référence')?> </p>;
+				<p class="ref-post"><?php the_field('reference')?> </p>;
 
 
 	</div>

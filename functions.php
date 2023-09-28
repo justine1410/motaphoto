@@ -24,8 +24,8 @@ add_action('wp_enqueue_scripts', 'add_js_scripts');
 // AFichier ajax
 function enqueue_ajax_scripts() {
     wp_enqueue_script('jquery');
-    wp_enqueue_script('my-ajax-script', get_template_directory_uri() . '/js/ajax-load-more.js', array('jquery'), '1.0', true);
-    wp_enqueue_script('filtre', get_template_directory_uri() . '/js/filtre.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('my-ajax-script', get_template_directory_uri() . '/js/ajax-load-more.js', array('jquery'), '1', true);
+    wp_enqueue_script('filtre', get_template_directory_uri() . '/js/filtre.js', array('jquery'), '1', true);
 
 
     // Passez l'URL Ajax au script
@@ -40,9 +40,9 @@ add_action('wp_enqueue_scripts', 'enqueue_ajax_scripts');
 // afficher plus
 function load_more_posts() {
     $page = $_POST['photos'];
-
+ 
     $query_args = array(
-        'post_type' => 'photos',
+        'post_type' => 'photo',
         'posts_per_page' => 12,  
         'paged' => $page,
         array(
@@ -61,7 +61,7 @@ function load_more_posts() {
         endwhile;
     endif;
 
-    wp_reset_postdata();
+    // wp_reset_postdata();
     die();
 }
 
@@ -74,12 +74,10 @@ function filter_posts() {
     $categorie =  $_POST['category']; 
     $format = $_POST['format'];
     $sort_order =$_POST['order'];
-    
-
-   
+       
     if($categorie && $format){
         $args = array(
-            'post_type'=>'photos',
+            'post_type'=>'photo',
             'orderby' => 'date',
             'order' => $sort_order,
             'tax_query'=> array(
@@ -105,7 +103,6 @@ function filter_posts() {
                 get_template_part( 'template-parts/lightbox' ); 
     
            endwhile;
-            wp_reset_postdata(); // Réinitialiser la requête post
             else :
                 echo "Il n'y a pas de photos correspondant à votre recherche";
             endif;
@@ -113,7 +110,7 @@ function filter_posts() {
     }
     elseif($categorie){
         $args = array(
-                    'post_type' => 'photos',  
+                    'post_type' => 'photo',  
                     'tax_query' => array(
                         array(
                             'taxonomy' => 'categorie',
@@ -130,7 +127,6 @@ function filter_posts() {
                     get_template_part( 'template-parts/lightbox' ); 
         
                endwhile;
-                wp_reset_postdata(); // Réinitialiser la requête post
                 else :
                     echo "Il n'y a pas de photos correspondant à votre recherche";
             
@@ -139,7 +135,7 @@ function filter_posts() {
     }
     elseif($format){
         $args = array(
-            'post_type' => 'photos',  
+            'post_type' => 'photo',  
             'tax_query' => array(
                 array(
                     'taxonomy' => 'format',
@@ -156,7 +152,6 @@ function filter_posts() {
             get_template_part( 'template-parts/lightbox' ); 
 
        endwhile;
-        wp_reset_postdata(); // Réinitialiser la requête post
         else :
             echo "Il n'y a pas de photos correspondant à votre recherche";
     
@@ -173,5 +168,4 @@ add_action('wp_ajax_nopriv_filter_posts', 'filter_posts');
 
 
 
-
-  ?>
+?>

@@ -1,38 +1,143 @@
-let openModal=document.querySelector("#menu-item-24");
-let modal = document.querySelector("#myModal")
+// modal contact
+$(document).ready(function() {
+    let openModal = $("#menu-item-24");
+    let modal = $("#myModal");
+
+    openModal.click(function() {
+        modal.css("display", "flex");
+    });
+
+    $(document).mouseup(function(e) {
+        let obj = $('.container');
+        if (!obj.is(e.target) && obj.has(e.target).length === 0) {
+            modal.css("display", "none");
+        }
+    });
+});
 
 
 
-openModal.addEventListener('click',()=>{
-    modal.style.display='flex';
-    
-})
+
+jQuery(document).ready(function($) {
+    $('.icone_fullscreen').click(function() {
+        $('#modaLightbox').css("display","flex");
+        let clickPhoto=(this).getAttribute('data-id');
+        console.log(clickPhoto);
+        // Accéder aux données depuis la variable JavaScript
+            for (var i = 0; i < articlesData.length; i++) {
+                var article = articlesData[i];
+                // Vérifiez si l'ID correspond à l'ID recherché
+                if (article.ID == clickPhoto) {
+                    // Sélectionnez l'élément avec la classe 'clickPhotoSuiv'
+                    $('.post-image-light').html('')
+                    $('.post-image-light').append(article.thumbnail)
+                    $('.arrow-suiv').attr('data-id', article.ID);
+                    $('.arrow-prec').attr('data-id', article.ID);
+
+                    break; // Arrêtez la boucle
+                }
+            }
+    });
+});
 
 
-document.addEventListener('mouseup',(e)=>{
-    let obj = document.querySelector('.container');
-    if(!obj.contains(e.target)){
-        modal.style.display='none';
+jQuery(document).ready(function($) {
+    $('.close-lightbox').click(function() {
+        $('#modaLightbox').css("display","none");
+     });
+});
+
+$('.arrow-suiv').click(function() {
+    let dataId = parseInt(this.getAttribute('data-id'));
+    dataId += 1;
+    let articleTrouve = false;
+     // Accéder aux données depuis la variable JavaScript
+     for (var i = 0; i < articlesData.length; i++) {
+        var article = articlesData[i];
+       
+        // Vérifiez si l'ID correspond à l'ID recherché
+        if (article.ID === dataId) {
+            // Sélectionnez l'élément avec la classe 'clickPhotoSuiv'
+            $('.post-image-light').html('')
+            $('.post-image-light').append(article.thumbnail)
+            $('.arrow-suiv').attr('data-id', article.ID);
+            $('.arrow-prec').attr('data-id', article.ID);
+            articleTrouve=true;
+            break; // Arrêtez la boucle
+        }
     }
-})
+    if(!articleTrouve){
+        console.log("Aucun article correspondant n'a été trouvé pour dataId =", dataId);
+        var article = articlesData[0]
+        console.log(article);
+
+        $('.post-image-light').html('')
+        $('.post-image-light').append(article.thumbnail)
+    }
+});
+
+$('.arrow-prec').click(function() {
+    let dataId = parseInt(this.getAttribute('data-id'));
+    dataId -= 1;
+    console.log(articlesData);
+     // Accéder aux données depuis la variable JavaScript
+     for (var i = 0; i < articlesData.length; i++) {
+        var article = articlesData[i];
+        
+        // Vérifiez si l'ID correspond à l'ID recherché
+        if (article.ID === dataId) {
+            // Sélectionnez l'élément avec la classe 'clickPhotoSuiv'
+            $('.post-image-light').html('')
+            $('.post-image-light').append(article.thumbnail)
+            $('.arrow-prec').attr('data-id', article.ID);
+            $('.arrow-suiv').attr('data-id', article.ID);
+            
+            break; // Arrêtez la boucle
+        }
+
+       
+       
+    }
+});
+
+
+
+
+
+
+
+
+jQuery(document).ready(function($) {
+    $('.arrow-prec').click(function() {
+      
+
+     });
+});
+
+
 
 //modal des pages de posts
-let modalSinglePost= document.querySelector('#myModal_single_post')
-let postContactButton = document.querySelector(".post-contact-button")
+$(document).ready(function() {
+    let modalSinglePost = $('#myModal_single_post');
+    let postContactButton = $('.post-contact-button');
+    let ref = $('#reference > span > input');
+    let ref_post = $('.ref-post');
+    let container_single_post = $('.container_single_post');
 
-postContactButton.addEventListener('click',()=>{
-    modalSinglePost.style.display='flex';
-    let ref = document.querySelector('#reference > span > input');
-    let ref_post = document.querySelector('.ref-post')
-    ref.value=ref_post.textContent;
-    
-})
+    postContactButton.click(function() {
+        modalSinglePost.css('display', 'flex');
+        ref.val(ref_post.text());
+        ref_post.css('display','none')
+    });
 
-document.addEventListener('mouseup',(e)=>{
-    let obj = document.querySelector('.container_single_post');
-    if(!obj.contains(e.target)){
-        modalSinglePost.style.display='none';
-    }
-})
+    $(document).mouseup(function(e) {
+        if (!container_single_post.is(e.target) && container_single_post.has(e.target).length === 0) {
+            modalSinglePost.css('display', 'none');
+        }
+    });
+});
 
-// test
+
+
+
+
