@@ -3,21 +3,34 @@ $(document).ready(function() {
     let openModal = $("#menu-item-24");
     let modal = $("#myModal");
 
+
     openModal.click(function() {
         modal.css("display", "flex");
     });
-
     $(document).mouseup(function(e) {
         let obj = $('.container');
         if (!obj.is(e.target) && obj.has(e.target).length === 0) {
             modal.css("display", "none");
         }
     });
+
+    
+    let openModalMobil = $("#menu-menu-principal-1 > li.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-24");
+    openModalMobil.click(function() {
+        $(".modal").css("display",'flex');
+    });
+    $(document).mouseup(function(e) {
+        let obj = $('.container');
+        if (!obj.is(e.target) && obj.has(e.target).length === 0) {
+            $(".modal").css("display", "none");
+        }
+    });
+
+    
 });
 
 
-
-
+// modal lightbox
 jQuery(document).ready(function($) {
     $('.icone_fullscreen').click(function() {
         $('#modaLightbox').css("display","flex");
@@ -99,21 +112,6 @@ $('.arrow-prec').click(function() {
        
     }
 });
-
-
-
-
-
-
-
-
-jQuery(document).ready(function($) {
-    $('.arrow-prec').click(function() {
-      
-
-     });
-});
-
 
 
 //modal des pages de posts

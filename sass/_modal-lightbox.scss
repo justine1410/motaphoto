@@ -55,3 +55,25 @@
             }
 }
 
+/* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
+@media screen and (min-width:320px) and (max-width:1100px){
+    #modaLightbox{
+        .container-lightbox{
+            padding: 10px;
+            .post_light{
+                flex-direction: column;
+                .post-image-light img{
+                margin-top: 20px;
+                margin-bottom: 20px;
+                }
+            }
+            .infos_light{
+                position: fixed;
+                width: 350px;
+                top: 82%;
+            }
+        
+        }
+    }
+}
+    

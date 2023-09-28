@@ -18,21 +18,21 @@
 <div class="category-filter">
 	<form id="category-filter-form" action="' . esc_url(home_url()) . '" method="get">
 		<div class="cat-form">
-			<select  id="category-select" name="category">
+			<select  id="category-select" class="select" name="category">
 					<option class="label" value="">CATÉGORIES</option>
 					<?php 
 						foreach ($categories as $category) :
 						$selected = ($category->slug === $category_filter) ? 'selected' : '';
-						echo '<option class="label" value="' . esc_attr($category->slug) . '" ' . $selected . '>' . esc_html($category->name) . '</option>';
+						echo '<option class="select" value="' . esc_attr($category->slug) . '" ' . $selected . '>' . esc_html($category->name) . '</option>';
 						endforeach;
 					?>
 			</select>
 			<select id="category-select-format" name="category">
-				<option class="label" value="">FORMATS</option>
+				<option class="select" value="">FORMATS</option>
 				<?php	
 					foreach ($formats as $category) :
 						$selected = ($category->slug === $category_filter_format) ? 'selected' : '';
-						echo '<option class="label" value="' . esc_attr($category->slug) . '" ' . $selected . '>' . esc_html($category->name) . '</option>';
+						echo '<option class="select" value="' . esc_attr($category->slug) . '" ' . $selected . '>' . esc_html($category->name) . '</option>';
 					endforeach;
 				?>
 			</select>

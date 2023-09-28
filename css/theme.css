@@ -44,6 +44,10 @@ body .post-filters form select option {
   font-family: "poppins";
   font-size: 12px;
   line-height: 18px;
+  height: 50px;
+}
+body .post-filters form select option:hover {
+  background-color: red;
 }
 body .photos_post, body #posts-container {
   display: grid;
@@ -86,6 +90,13 @@ body .bouton button:hover {
   }
   body .banniere img {
     height: 253px;
+  }
+  body .post-filters {
+    width: 100%;
+    padding: 10px;
+  }
+  body .post-filters select {
+    margin: 5px;
   }
   body .photos_post, body #posts-container {
     grid-template-columns: repeat(1, 1fr);
@@ -169,7 +180,7 @@ body .bouton button:hover {
   display: none; /* Hidden by default */
   justify-content: center;
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 9999; /* Sit on top */
   left: 0;
   top: 0;
   padding-top: 100px;
@@ -189,6 +200,7 @@ body .bouton button:hover {
 }
 #myModal .container img {
   width: 100%;
+  height: 80px;
   object-fit: cover;
   margin: 0;
 }
@@ -217,6 +229,12 @@ body .bouton button:hover {
   border: none;
 }
 
+/* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
+@media screen and (min-width: 320px) and (max-width: 1100px) {
+  .container {
+    width: 80%;
+  }
+}
 .post {
   display: flex;
   justify-content: space-evenly;
@@ -546,6 +564,24 @@ body .bouton button:hover {
   text-transform: uppercase;
 }
 
+/* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
+@media screen and (min-width: 320px) and (max-width: 1100px) {
+  #modaLightbox .container-lightbox {
+    padding: 10px;
+  }
+  #modaLightbox .container-lightbox .post_light {
+    flex-direction: column;
+  }
+  #modaLightbox .container-lightbox .post_light .post-image-light img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  #modaLightbox .container-lightbox .infos_light {
+    position: fixed;
+    width: 350px;
+    top: 82%;
+  }
+}
 #colophon {
   border-top: solid 2px #000000;
 }
