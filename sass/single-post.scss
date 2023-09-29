@@ -204,17 +204,17 @@
    .post{
     flex-direction: column-reverse;
      img{
-        width: 265px;
-        height: 397px;
+        width: 265px!important;
+        height: 397px!important;
         margin: auto;
      }
      .post__meta{
-        width: 100%;
+        width: 100%!important;
         margin-top: 20px;
         padding: 20px;
         h2{
             font-size: 46px;
-            width: 100%;
+            width: 100%!important;
         }
      }
    }
@@ -222,7 +222,7 @@
    .post-interesting{
     .post-contact{
         flex-direction: column;
-        width: 100%;
+        width: 100%!important;
     }
     .prochain{
         display: none;
@@ -237,9 +237,9 @@
     .other_post{
         .lightbox{
             margin: 20px;
-            post-image img{
-                width: 317px;
-                height: 280px;
+            .post-image img{
+                width: 300px!important;
+                height: 280px!important;
                 object-fit: cover;
                 margin: auto;
             }
