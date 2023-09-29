@@ -5,41 +5,41 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%!important;
+    height: 100%!important;
     background-color: rgba(0, 0, 0, 0.7); /* Le dernier paramètre (0.7) détermine l'opacité du noir transparent. 1 = complètement opaque, 0 = complètement transparent */
     z-index: 9999; /* Utilisez un z-index élevé pour vous assurer que l'overlay est au-dessus de tout le contenu */
     .container-lightbox{
-                width: 100%;
-                height: 100%;        
+                width: 100%!important;
+                height: 100%!important;        
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 padding: 30px;
                 .close_light{
                     display: flex;
-                    width: 100%;
+                    width: 100%!important;
                     justify-content: end;
                     color: white;
                     margin: 50px;
                 }    
 
                 .post_light{
-                    width: 100%;
+                    width: 100%!important;
                     display: flex;
                     justify-content: space-evenly;
                     align-items: center;
                     margin-top: 50px;
                     .post-image-light img{
-                       width: 564px;
-                       height: 495px;
+                       width: 564px!important;
+                       height: 495px!important;
                        object-fit: cover;
                     }
                 }
                 .infos_light{
                     display: flex;
                     justify-content: space-between;
-                    width: 564px;
+                    width: 564px!important;
                     color: #ffffff;
                     font-family:'space mono' ;
                     font-size: 14px;

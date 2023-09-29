@@ -10,7 +10,7 @@ body{
     margin-bottom: 50px;
     img{
         width: 100%;
-        height: 900px;
+        height: 900px !important;
         object-fit: cover;
     }
     h1{
@@ -20,7 +20,7 @@ body{
         z-index: 1;
         .titre{
             width: 70%;
-            height: auto;
+            height: auto !important;
         }
     }
    }
@@ -59,8 +59,8 @@ body{
     width: 1148px;
     margin: auto;
     .post-image img{
-        width: 100%;
-        height: 495px;
+        width: 100% !important;
+        height: 495px !important;
         object-fit: cover;
     }
    }
@@ -71,13 +71,17 @@ body{
         button{
             width: 272px ;
             height: 50px;
-            background-color: #d8d8d8;
+            background-color: #d8d8d8 !important;
             font-family: 'space mono';
             font-size: 12px;
             font-weight: 400;
-            color: #000000;
+            color: #000000 !important;
             &:hover{
-                text-decoration: none;
+                text-decoration: none !important;
+            }
+            &:focus{
+                outline-offset: none !important;
+                outline: none !important;
             }
         }
    }

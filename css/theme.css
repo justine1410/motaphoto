@@ -10,7 +10,7 @@ body .banniere {
 }
 body .banniere img {
   width: 100%;
-  height: 900px;
+  height: 900px !important;
   object-fit: cover;
 }
 body .banniere h1 {
@@ -21,7 +21,7 @@ body .banniere h1 {
 }
 body .banniere h1 .titre {
   width: 70%;
-  height: auto;
+  height: auto !important;
 }
 body .post-filters {
   width: 1148px;
@@ -53,8 +53,8 @@ body .photos_post, body #posts-container {
   margin: auto;
 }
 body .photos_post .post-image img, body #posts-container .post-image img {
-  width: 100%;
-  height: 495px;
+  width: 100% !important;
+  height: 495px !important;
   object-fit: cover;
 }
 body .bouton {
@@ -64,14 +64,18 @@ body .bouton {
 body .bouton button {
   width: 272px;
   height: 50px;
-  background-color: #d8d8d8;
+  background-color: #d8d8d8 !important;
   font-family: "space mono";
   font-size: 12px;
   font-weight: 400;
-  color: #000000;
+  color: #000000 !important;
 }
 body .bouton button:hover {
-  text-decoration: none;
+  text-decoration: none !important;
+}
+body .bouton button:focus {
+  outline-offset: none !important;
+  outline: none !important;
 }
 
 /* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
@@ -236,8 +240,8 @@ body .bouton button:hover {
   justify-content: space-evenly;
 }
 .post img {
-  width: 40%;
-  height: 844px;
+  width: 40% !important;
+  height: 844px !important;
   object-fit: cover;
 }
 .post .post__meta {
@@ -245,7 +249,7 @@ body .bouton button:hover {
   flex-direction: column;
   justify-content: end;
   border-bottom: solid 2px;
-  width: 50%;
+  width: 50% !important;
   padding-bottom: 2%;
 }
 .post .post__meta h2 {
@@ -275,18 +279,18 @@ body .bouton button:hover {
 }
 .post-interesting .post-contact {
   display: flex;
-  width: 50%;
+  width: 50% !important;
   justify-content: space-between;
   align-items: center;
 }
 .post-interesting .post-contact button {
-  background-color: #d8d8d8;
-  width: 272px;
-  height: 50px;
+  background-color: #d8d8d8 !important;
+  width: 272px !important;
+  height: 50px !important;
   border-radius: 2px;
   padding: 8px 15px 8px 15px;
   gap: 10px;
-  color: #000000;
+  color: #000000 !important;
   font-family: "Space Mono";
   font-weight: 400;
   font-size: 12px;
@@ -346,32 +350,33 @@ body .bouton button:hover {
   border: none;
 }
 .post-interesting .prochain {
-  width: 50%;
+  width: 50% !important;
   display: flex;
   justify-content: end;
 }
 .post-interesting .prochain nav {
   position: relative;
+  margin: 0;
 }
 .post-interesting .prochain nav .nav-links {
   display: flex;
   flex-direction: column-reverse;
 }
-.post-interesting .prochain nav .nav-links img {
-  margin-top: 20px;
+.post-interesting .prochain nav .nav-links .nav-next a img {
+  margin-top: 20px !important;
+  width: 150px !important;
 }
-.post-interesting .prochain nav .nav-links .nav-previous .prev {
-  position: absolute;
-  right: 12%;
+.post-interesting .prochain nav .nav-links .nav-next a .prev {
+  width: 36px !important;
 }
 .post-interesting .prochain nav .nav-links .nav-previous .test {
-  position: absolute;
-  right: 12%;
-  bottom: 0;
+  position: absolute !important;
+  right: 0% !important;
+  bottom: 17% !important;
+  width: 36px !important;
 }
 
 .post-loving {
-  margin: 3%;
   border-top: solid 2px;
 }
 .post-loving h3 {
@@ -379,6 +384,7 @@ body .bouton button:hover {
   text-transform: uppercase;
   font-weight: 400;
   font-size: 18px;
+  margin: 3% !important;
 }
 .post-loving .other_post {
   display: flex;
@@ -386,8 +392,8 @@ body .bouton button:hover {
   flex-wrap: wrap;
 }
 .post-loving .other_post img {
-  width: 564px;
-  height: 495px;
+  width: 564px !important;
+  height: 495px !important;
   object-fit: cover;
 }
 
@@ -395,16 +401,16 @@ body .bouton button:hover {
   text-align: center;
 }
 .other_post_contact button {
-  background-color: #d8d8d8;
-  width: 272px;
-  height: 50px;
+  background-color: #d8d8d8 !important;
+  width: 272px !important;
+  height: 50px !important;
   border-radius: 2px;
   padding: 8px 15px 8px 15px;
   gap: 10px;
-  color: #000000;
+  color: #000000 !important;
   font-family: "Space Mono";
   font-weight: 400;
-  font-size: 12px;
+  font-size: 12px !important;
   margin: 50px 0 70px 0;
 }
 .other_post_contact button:hover {
@@ -462,12 +468,12 @@ body .bouton button:hover {
   background-color: #000000;
 }
 .lightbox .post-image {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
 }
 .lightbox .lightbox-info {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -477,20 +483,20 @@ body .bouton button:hover {
   opacity: 0;
 }
 .lightbox .lightbox-info .fullscreen {
-  width: 100%;
+  width: 100% !important;
   display: flex;
   justify-content: end;
   color: #ffffff;
 }
 .lightbox .lightbox-info .icone_eye, .lightbox .lightbox-info .icone_fullscreen {
-  width: 40px;
-  height: 40px;
+  width: 40px !important;
+  height: 40px !important;
   object-fit: contain;
 }
 .lightbox .lightbox-info .info {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 100% !important;
   color: #ffffff;
   font-family: "space mono";
   font-size: 14px;
@@ -512,14 +518,14 @@ body .bouton button:hover {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   background-color: rgba(0, 0, 0, 0.7); /* Le dernier paramètre (0.7) détermine l'opacité du noir transparent. 1 = complètement opaque, 0 = complètement transparent */
   z-index: 9999; /* Utilisez un z-index élevé pour vous assurer que l'overlay est au-dessus de tout le contenu */
 }
 #modaLightbox .container-lightbox {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -527,27 +533,27 @@ body .bouton button:hover {
 }
 #modaLightbox .container-lightbox .close_light {
   display: flex;
-  width: 100%;
+  width: 100% !important;
   justify-content: end;
   color: white;
   margin: 50px;
 }
 #modaLightbox .container-lightbox .post_light {
-  width: 100%;
+  width: 100% !important;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin-top: 50px;
 }
 #modaLightbox .container-lightbox .post_light .post-image-light img {
-  width: 564px;
-  height: 495px;
+  width: 564px !important;
+  height: 495px !important;
   object-fit: cover;
 }
 #modaLightbox .container-lightbox .infos_light {
   display: flex;
   justify-content: space-between;
-  width: 564px;
+  width: 564px !important;
   color: #ffffff;
   font-family: "space mono";
   font-size: 14px;
@@ -580,6 +586,8 @@ body .bouton button:hover {
 }
 #colophon {
   border-top: solid 2px #000000;
+  max-width: 100% !important;
+  margin: 0;
 }
 #colophon nav {
   display: flex;
