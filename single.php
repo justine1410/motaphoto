@@ -53,12 +53,7 @@
 
         </div>
         <div class="prochain">
-
-
-        
         <?php
-
-
             $previous_post = get_previous_post();
             $next_post = get_next_post();
 
@@ -68,7 +63,6 @@
                     'prev_text' =>  "<img class='test' src='http://motaphoto.local/wp-content/uploads/2023/08/arrox-next.png'>",
     
                 ) );
-    
             }else{
  
                     the_post_navigation( array(

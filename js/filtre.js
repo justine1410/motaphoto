@@ -28,16 +28,5 @@ jQuery(document).ready(function($) {
 
 });
 
-// css des filtre
-// const monInput = document.getElementById('category-select');
-// monInput.addEventListener('focus', function () {
-//     // Code à exécuter lorsque l'élément obtient le focus
-//     monInput.style.backgroundColor = 'red';
-
-//   });
-// monInput.addEventListener('blur', function () {
-//     // Code à exécuter lorsque l'élément perd le focus
-//     monInput.style.backgroundColor = ''; // Remettre la couleur de fond par défaut
-//   });
 
 

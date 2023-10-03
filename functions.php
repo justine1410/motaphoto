@@ -43,7 +43,7 @@ function load_more_posts() {
  
     $query_args = array(
         'post_type' => 'photo',
-        'posts_per_page' => 12,  
+        'posts_per_page' => 12,   
         'paged' => $page,
         array(
             'taxonomy' => 'categorie',

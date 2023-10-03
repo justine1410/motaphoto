@@ -10,6 +10,7 @@ body{
     margin-bottom: 50px;
     img{
         width: 100%;
+        max-width: inherit!important;
         height: 900px !important;
         object-fit: cover;
     }

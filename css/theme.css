@@ -10,6 +10,7 @@ body .banniere {
 }
 body .banniere img {
   width: 100%;
+  max-width: inherit !important;
   height: 900px !important;
   object-fit: cover;
 }
@@ -154,6 +155,7 @@ body .bouton button:focus {
     display: none;
   }
   #site-header .mobile {
+    display: flex;
     position: absolute;
     top: 120px !important;
     z-index: 1;
@@ -191,8 +193,7 @@ body .bouton button:focus {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+  background-color: rgba(0, 0, 0, 0.7); /* Le dernier paramètre (0.7) détermine l'opacité du noir transparent. 1 = complètement opaque, 0 = complètement transparent */
 }
 #myModal .container {
   background-color: #ffffff;
@@ -204,9 +205,13 @@ body .bouton button:focus {
 }
 #myModal .container img {
   width: 100%;
-  height: 80px;
+  height: 80px !important;
   object-fit: cover;
   margin: 0;
+}
+#myModal .container button:focus {
+  outline-offset: none !important;
+  outline: none !important;
 }
 #myModal .container form {
   width: 263px;
@@ -221,6 +226,10 @@ body .bouton button:focus {
   border: solid 1px #b8bbc2;
   border-radius: 10px;
 }
+#myModal .container form input:focus {
+  outline-offset: none !important;
+  outline: none !important;
+}
 #myModal .container form p {
   margin: 20px 0;
 }
@@ -233,7 +242,7 @@ body .bouton button:focus {
   border: none;
 }
 #myModal .container form .ref-post {
-  display: none;
+  display: none !important;
 }
 
 /* Sur les écrans, quand la largeur de la fenêtre fait au maximum 1280px */
@@ -242,7 +251,7 @@ body .bouton button:focus {
     width: 80%;
   }
   .container .ref-post {
-    display: none;
+    display: none !important;
   }
 }
 .post {

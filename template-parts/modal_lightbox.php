@@ -17,22 +17,29 @@
                 $args = array(
                     'post_type' => 'photo',   // Type de post : article
                     'posts_per_page' => -1,  // Récupérer tous les articles
+
                 );
 
                 // Récupérer les articles en utilisant get_posts()
                 $articles = get_posts($args);
-
                 // Initialiser un tableau pour stocker les données des articles
                 $tableau_articles = array();
 
                 // Boucler à travers les articles récupérés et les ajouter au tableau
                 foreach ($articles as $article) {
 
+                    $taxonomy_name='categorie';
+                    $ref_name='reference';
+                    
                     $thumbnail = get_the_post_thumbnail($article->ID, 'large');
+                    $terms = get_the_terms($article->ID, $taxonomy_name);
+                    $ref = get_field('référence');
 
                     $article_data = array(
                         'ID' => $article->ID,
                         'thumbnail' => $thumbnail,
+                        'taxonomy' => $terms,
+                        'field' => $article->$ref,
                         
                         // Vous pouvez ajouter d'autres champs selon vos besoins
                     );
@@ -60,8 +67,11 @@
 
         </div>
         <div class="infos_light">
+            <div class="ref">
+                <?= the_field('reference'); ?>
+            </div>
+
         <?php 
-                the_field('reference') ;
             
                 $taxonomy = 'categorie'; // Remplacez par le nom de la taxonomie que vous souhaitez afficher
                 $terms = get_the_terms(get_the_ID(), $taxonomy);

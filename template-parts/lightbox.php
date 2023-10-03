@@ -11,8 +11,9 @@
         </a>
         <div class="info">
             <?php 
-                the_field('reference') ;
-            
+
+                the_field('reference');
+                
                 $taxonomy = 'categorie'; // Remplacez par le nom de la taxonomie que vous souhaitez afficher
                 $terms = get_the_terms(get_the_ID(), $taxonomy);
 

@@ -1,32 +1,36 @@
 // modal contact
 $(document).ready(function() {
     let openModal = $("#menu-item-24");
-    let modal = $("#myModal");
-
 
     openModal.click(function() {
-        modal.css("display", "flex");
+        $('.modal').css("display", "flex");
     });
+
     $(document).mouseup(function(e) {
         let obj = $('.container');
         if (!obj.is(e.target) && obj.has(e.target).length === 0) {
-            modal.css("display", "none");
+            $('.modal').css("display", "none");
         }
     });
+   
 
     
     let openModalMobil = $("#menu-menu-principal-1 > li.menu-item.menu-item-type-custom.menu-item-object-custom.menu-item-24");
     openModalMobil.click(function() {
         $(".modal").css("display",'flex');
     });
-    $(document).mouseup(function(e) {
-        let obj = $('.container');
-        if (!obj.is(e.target) && obj.has(e.target).length === 0) {
-            $(".modal").css("display", "none");
-        }
-    });
+});
 
-    
+//modal des pages de posts
+$(document).ready(function() {
+    let ref = $('#reference > span > input');
+    // let ref_post = $('.ref-post');
+
+    $('.post-contact-button').click(function() {
+        $('.modal').css('display', 'flex');
+        ref.val($('.ref-post').text());
+        $('.ref-post').css('display','none')
+    });
 });
 
 
@@ -63,7 +67,6 @@ jQuery(document).ready(function($) {
 $('.arrow-suiv').click(function() {
     let dataId = parseInt(this.getAttribute('data-id'));
     dataId += 1;
-    let articleTrouve = false;
      // Accéder aux données depuis la variable JavaScript
      for (var i = 0; i < articlesData.length; i++) {
         var article = articlesData[i];
@@ -72,27 +75,27 @@ $('.arrow-suiv').click(function() {
         if (article.ID === dataId) {
             // Sélectionnez l'élément avec la classe 'clickPhotoSuiv'
             $('.post-image-light').html('')
-            $('.post-image-light').append(article.thumbnail)
+            $('.post-image-light').append(article.thumbnail) 
+
+            $('.ref').html('')
+            $('.ref').append(article.field.reference[0])
+
+            $('.therme').html('')
+            $('.therme').append(article.taxonomy[0].name)
+
             $('.arrow-suiv').attr('data-id', article.ID);
             $('.arrow-prec').attr('data-id', article.ID);
-            articleTrouve=true;
             break; // Arrêtez la boucle
         }
     }
-    if(!articleTrouve){
-        console.log("Aucun article correspondant n'a été trouvé pour dataId =", dataId);
-        var article = articlesData[0]
-        console.log(article);
-
-        $('.post-image-light').html('')
-        $('.post-image-light').append(article.thumbnail)
-    }
+  
 });
 
 $('.arrow-prec').click(function() {
     let dataId = parseInt(this.getAttribute('data-id'));
     dataId -= 1;
     console.log(articlesData);
+
      // Accéder aux données depuis la variable JavaScript
      for (var i = 0; i < articlesData.length; i++) {
         var article = articlesData[i];
@@ -100,8 +103,18 @@ $('.arrow-prec').click(function() {
         // Vérifiez si l'ID correspond à l'ID recherché
         if (article.ID === dataId) {
             // Sélectionnez l'élément avec la classe 'clickPhotoSuiv'
+            console.log(article.taxonomy[0].name);
+            console.log(article.field.reference[0]);
+
             $('.post-image-light').html('')
             $('.post-image-light').append(article.thumbnail)
+
+            $('.ref').html('')
+            $('.ref').append(article.field.reference[0])
+
+            $('.therme').html('')
+            $('.therme').append(article.taxonomy[0].name)
+
             $('.arrow-prec').attr('data-id', article.ID);
             $('.arrow-suiv').attr('data-id', article.ID);
             
@@ -114,26 +127,7 @@ $('.arrow-prec').click(function() {
 });
 
 
-//modal des pages de posts
-$(document).ready(function() {
-    let modalSinglePost = $('#myModal_single_post');
-    let postContactButton = $('.post-contact-button');
-    let ref = $('#reference > span > input');
-    let ref_post = $('.ref-post');
-    let container_single_post = $('.container_single_post');
 
-    postContactButton.click(function() {
-        modalSinglePost.css('display', 'flex');
-        ref.val(ref_post.text());
-        ref_post.css('display','none')
-    });
-
-    $(document).mouseup(function(e) {
-        if (!container_single_post.is(e.target) && container_single_post.has(e.target).length === 0) {
-            modalSinglePost.css('display', 'none');
-        }
-    });
-});
 
 
 

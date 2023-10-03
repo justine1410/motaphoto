@@ -1,6 +1,6 @@
 <!-- The Modal -->
-<div id="myModal_single_post" class="modal">
-	<div class="container_single_post">
+<div id="myModal" class="modal">
+	<div class="container">
 		<img src="http://motaphoto.local/wp-content/uploads/2023/07/Contact-header.png" alt="">
 				<?php
 				// On insère le formulaire de demandes de renseignements

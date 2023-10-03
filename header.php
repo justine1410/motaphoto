@@ -26,18 +26,14 @@
 		<link rel="profile" href="https://gmpg.org/xfn/11">
 
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
 		<?php wp_head(); ?>
 
 	</head>
 
 	<body <?php body_class(); ?>>
-
 		<?php
 		wp_body_open();
 		?>
-
 		<header id="site-header" class="header-footer-group">
 				<img class="logo" src="<?= get_stylesheet_directory_uri().'/img/Logo.png' ?>">
 				<div class="destkop">
@@ -64,8 +60,6 @@
 						?>
 					</ul>
 				</div>
-
-
 
 		</header><!-- #site-header -->
 
