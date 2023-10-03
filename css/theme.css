@@ -155,7 +155,6 @@ body .bouton button:focus {
     display: none;
   }
   #site-header .mobile {
-    display: flex;
     position: absolute;
     top: 120px !important;
     z-index: 1;
